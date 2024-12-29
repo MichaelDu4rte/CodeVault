@@ -15,6 +15,7 @@ import type {
 } from "convex/server";
 import type * as https from "../https.js";
 import type * as lemonSqueezy from "../lemonSqueezy.js";
+import type * as snippets from "../snippets.js";
 import type * as users from "../users.js";
 
 /**
@@ -28,6 +29,7 @@ import type * as users from "../users.js";
 declare const fullApi: ApiFromModules<{
   https: typeof https;
   lemonSqueezy: typeof lemonSqueezy;
+  snippets: typeof snippets;
   users: typeof users;
 }>;
 export declare const api: FilterApi<
