@@ -13,6 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as codeExecutions from "../codeExecutions.js";
 import type * as https from "../https.js";
 import type * as lemonSqueezy from "../lemonSqueezy.js";
 import type * as snippets from "../snippets.js";
@@ -27,6 +28,7 @@ import type * as users from "../users.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  codeExecutions: typeof codeExecutions;
   https: typeof https;
   lemonSqueezy: typeof lemonSqueezy;
   snippets: typeof snippets;
