@@ -8,21 +8,32 @@ export const syncUser = mutation({
     name: v.string(),
   },
   handler: async (ctx, args) => {
+    console.log("Syncing user:", args); // Log para verificar os dados recebidos
+
     const existingUser = await ctx.db
       .query("users")
       .filter((q) => q.eq(q.field("userId"), args.userId))
       .first();
 
-    if (!existingUser) {
+    if (existingUser) {
+      console.log("User already exists:", existingUser); // Log caso o usuário já exista
+      return; // Não insira se o usuário já existe
+    }
+
+    try {
       await ctx.db.insert("users", {
         userId: args.userId,
         email: args.email,
         name: args.name,
         isPro: false,
       });
+      console.log("User inserted successfully");
+    } catch (error) {
+      console.error("Error inserting user:", error); // Log de erro de inserção
     }
   },
 });
+
 
 export const getUser = query({
   args: { userId: v.string() },

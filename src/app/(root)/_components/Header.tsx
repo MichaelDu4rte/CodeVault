@@ -22,7 +22,7 @@ async function Header() {
   <div className="flex items-center justify-between">
     {/* Logo Section */}
     <div className="flex items-center gap-4">
-      <Link href="/" className="flex items-center gap-3 group">
+      <Link href="/snippets" className="flex items-center gap-3 group">
         <div className="relative bg-gradient-to-br from-gray-800 to-black p-3 rounded-full ring-2 ring-purple-600/40 shadow-md group-hover:scale-105 transition-transform">
           <div className="w-6 h-6 bg-gradient-to-br from-purple-600 via-gray-800 to-black transform rotate-45"></div>
         </div>
