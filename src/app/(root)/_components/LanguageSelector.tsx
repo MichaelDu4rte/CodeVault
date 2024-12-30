@@ -31,6 +31,7 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
   };
 
   if (!mounted) return null;
+  console.log(language); // Deve exibir o valor atualizado após setLanguage
 
   return (
     <div className="relative" ref={dropdownRef}>

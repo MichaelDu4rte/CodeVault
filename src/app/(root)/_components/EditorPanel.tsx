@@ -5,7 +5,7 @@ import { defineMonacoThemes, LANGUAGE_CONFIG } from "../_constants";
 import { Editor } from "@monaco-editor/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ShareIcon, TypeIcon } from "lucide-react";
+import { ShareIcon, TypeIcon, DownloadCloudIcon } from "lucide-react";
 import { useClerk } from "@clerk/nextjs";
 import useMounted from "@/hooks/useMounted";
 import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
@@ -36,6 +36,43 @@ function EditorPanel() {
     const size = Math.min(Math.max(newSize, 12), 24);
     setFontSize(size);
     localStorage.setItem("editor-font-size", size.toString());
+  };
+
+  const LANGUAGE_EXTENSIONS: Record<string, string> = {
+    javascript: "js",
+    typescript: "ts",
+    python: "py",
+    java: "java",
+    go: "go",
+    rust: "rs",
+    cpp: "cpp",
+    csharp: "cs",
+    ruby: "rb",
+    swift: "swift",
+  };
+
+  
+function getExtension(languageId: string): string {
+  return LANGUAGE_EXTENSIONS[languageId] || "txt"; // Retorna "txt" como padrão se o idioma não estiver no mapeamento
+}
+
+  const handleDownloadCode = () => {
+    if (!editor) return;
+
+    const code = editor.getValue(); // Obtém o código atual do editor
+    const extensionId = LANGUAGE_CONFIG[language].id;
+    const extension = getExtension(extensionId); 
+    const blob = new Blob([code], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    // Cria um link para o download
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `code.${extension}`; // Define o nome do arquivo
+    link.click();
+
+    // Libera o recurso do URL
+    URL.revokeObjectURL(url);
   };
 
   if (!mounted) return null;
@@ -69,6 +106,17 @@ function EditorPanel() {
                 <span className="text-sm text-gray-300">{fontSize}</span>
               </div>
             </div>
+
+            {/* Download Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleDownloadCode}
+              className="inline-flex items-center gap-3 px-3 py-2 rounded-md bg-gradient-to-r from-green-500 to-green-600 text-white font-medium"
+            >
+              <DownloadCloudIcon className="size-5 text-white" />
+              
+            </motion.button>
 
             {/* Share Button */}
             <motion.button
