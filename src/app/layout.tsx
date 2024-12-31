@@ -5,6 +5,8 @@ import "./globals.css";
 import { ClerkProvider} from "@clerk/nextjs";
 import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
 import { dark } from '@clerk/themes'
+import { ptBR } from '@clerk/localizations'
+
 
 
 const geistSans = localFont({
@@ -29,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{
+    <ClerkProvider localization={ptBR} appearance={{
       baseTheme: dark,
     }}>
       <html lang="en">
