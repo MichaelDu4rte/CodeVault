@@ -11,6 +11,7 @@ import { Editor } from "@monaco-editor/react";
 import { defineMonacoThemes, LANGUAGE_CONFIG } from "@/app/editor/_constants";
 import CopyButton from "./_components/CopyButton";
 import Comments from "./_components/Comments";
+import Image from "next/image";
 
 function SnippetDetailPage() {
   const snippetId = useParams().id;
@@ -33,7 +34,7 @@ function SnippetDetailPage() {
   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
     <div className="flex items-center gap-4">
       <div className="flex items-center justify-center size-12 rounded-xl bg-[#2d2d32] p-2.5 shadow-md">
-        <img
+        <Image
           src={`/${snippet.language}.png`}
           alt={`${snippet.language} logo`}
           className="w-full h-full object-contain"
