@@ -45,7 +45,7 @@ async function Header() {
         <RunButton />
       </SignedIn>
 
-      {convexUser?.isPro && (
+      {convexUser?.isPro == false && (
         <Link
           href="/pricing"
           className="flex items-center gap-2 px-4 py-2 rounded-lg border border-purple-500/40 bg-gradient-to-br from-gray-900 via-black to-purple-900 shadow-lg hover:from-purple-800 hover:via-black hover:to-gray-900 hover:shadow-purple-700/50 transition"

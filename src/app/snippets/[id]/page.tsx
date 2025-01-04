@@ -8,7 +8,7 @@ import SnippetLoadingSkeleton from "./_components/SnippetLoadingSkeleton";
 import NavigationHeader from "@/components/NavigationHeader";
 import { Clock, Code, MessageSquare, User } from "lucide-react";
 import { Editor } from "@monaco-editor/react";
-import { defineMonacoThemes, LANGUAGE_CONFIG } from "@/app/(root)/_constants";
+import { defineMonacoThemes, LANGUAGE_CONFIG } from "@/app/editor/_constants";
 import CopyButton from "./_components/CopyButton";
 import Comments from "./_components/Comments";
 
