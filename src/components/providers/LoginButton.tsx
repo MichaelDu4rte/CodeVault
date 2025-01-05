@@ -9,7 +9,7 @@ function LoginButton() {
              transition-all duration-200 font-medium shadow-lg shadow-blue-500/20"
       >
         <LogIn className="w-4 h-4 transition-transform" />
-        <span>Sign In</span>
+        <span>Login</span>
       </button>
     </SignInButton>
   );
