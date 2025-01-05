@@ -1,44 +1,67 @@
-import { useCodeEditorStore } from "@/store/userCodeEditorStore";
 import { useMutation } from "convex/react";
-import { useState } from "react";
+import { useRouter } from "next/navigation"; 
 import { api } from "../../../../convex/_generated/api";
+import { useCodeEditorStore } from "@/store/userCodeEditorStore";
+import { useState } from "react";
 import { X } from "lucide-react";
-import toast from "react-hot-toast";
+import { toast } from "@/hooks/use-toast";
 
 function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
   const [title, setTitle] = useState("");
   const [isSharing, setIsSharing] = useState(false);
   const { language, getCode } = useCodeEditorStore();
   const createSnippet = useMutation(api.snippets.createSnippet);
+  const router = useRouter(); // Inicializa o router
 
   const handleShare = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     if (title.trim() === "") {
-      toast.error("O título não pode estar vazio");
+      toast({
+        title: "Erro",
+        description: "O título não pode estar vazio.",
+        variant: "destructive",
+        className: "bg-[#1a1b22] text-red-500 border border-red-700 rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out"
+      });
       return;
     }
-
+  
     setIsSharing(true);
-
+  
     try {
       const code = getCode();
-      await createSnippet({ title, language, code });
+      const snippet = await createSnippet({ title, language, code });
+  
       onClose();
       setTitle("");
-      toast.success("Snippet compartilhado com sucesso!");
+  
+      toast({
+        title: "Sucesso",
+        description: "Código compartilhado com sucesso!",
+        className: "bg-[#1a1b22] text-[#9b59b6] border border-[#9b59b6] rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out"
+      });
+  
+      setTimeout(() => {
+        router.push(`/snippets/${snippet}`);
+      }, 300);
     } catch (error) {
-      console.error("Erro ao criar snippet:", error);
-      toast.error("Erro ao criar snippet");
+      console.error("Erro ao compartilhar código:", error);
+  
+      toast({
+        title: "Erro",
+        description: "Erro ao compartilhar código. Tente novamente mais tarde.",
+        variant: "destructive",
+        className: "bg-[#1a1b22] text-red-500 border border-red-700 rounded-lg shadow-lg p-4 transition-all duration-300 ease-in-out"
+      });
     } finally {
       setIsSharing(false);
     }
   };
-
+  
+  
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50">
       <div className="relative bg-gradient-to-br from-[#191921] via-[#1e1e2e] to-[#252536] rounded-2xl p-6 w-full max-w-md shadow-lg shadow-black/50 border border-[#313244]">
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-400 hover:text-gray-300"
@@ -47,19 +70,17 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
           <X className="w-5 h-5" />
         </button>
 
-        {/* Title */}
         <h2 className="text-2xl font-semibold text-white mb-6 text-center">
           💎 Compartilhe seu código 💎
         </h2>
 
         <form onSubmit={handleShare}>
-          {/* Input Field */}
           <div className="mb-6">
             <label
               htmlFor="title"
               className="block text-sm font-medium text-gray-400 mb-2"
             >
-              Título do Snippet
+              Título do seu codigo
             </label>
             <input
               type="text"
@@ -72,7 +93,6 @@ function ShareSnippetDialog({ onClose }: { onClose: () => void }) {
             />
           </div>
 
-          {/* Buttons */}
           <div className="flex justify-between items-center gap-4">
             <button
               type="button"

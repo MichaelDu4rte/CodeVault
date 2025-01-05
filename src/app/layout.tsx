@@ -6,6 +6,7 @@ import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
 import { dark } from '@clerk/themes'
 import { ptBR } from '@clerk/localizations'
 import { Analytics } from '@vercel/analytics/next';
+import { Toaster } from "@/components/ui/toaster";
 
 
 const geistSans = localFont({
@@ -72,6 +73,7 @@ export default function RootLayout({
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <ConvexClientProvider>{children}</ConvexClientProvider>
           <Analytics />
+          <Toaster/>
         </body>
       </html>
     </ClerkProvider>

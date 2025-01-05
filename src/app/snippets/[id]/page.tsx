@@ -1,12 +1,12 @@
 "use client";
 
 import { useQuery } from "convex/react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { api } from "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
 import SnippetLoadingSkeleton from "./_components/SnippetLoadingSkeleton";
 import NavigationHeader from "@/components/NavigationHeader";
-import { Clock, Code, MessageSquare, User } from "lucide-react";
+import { Clock, Code, MessageSquare, Play, User } from "lucide-react";
 import { Editor } from "@monaco-editor/react";
 import { defineMonacoThemes, LANGUAGE_CONFIG } from "@/app/editor/_constants";
 import CopyButton from "./_components/CopyButton";
@@ -15,11 +15,18 @@ import Image from "next/image";
 
 function SnippetDetailPage() {
   const snippetId = useParams().id;
+  const router = useRouter(); 
 
   const snippet = useQuery(api.snippets.getSnippetById, { snippetId: snippetId as Id<"snippets"> });
   const comments = useQuery(api.snippets.getComments, { snippetId: snippetId as Id<"snippets"> });
 
   if (snippet === undefined) return <SnippetLoadingSkeleton />;
+
+  const handleUseSnippet = () => {
+    
+    localStorage.setItem(`editor-code-${snippet.language}`, snippet.code);
+    router.push("/editor");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#121218] to-[#1a1a1f]">
@@ -37,6 +44,8 @@ function SnippetDetailPage() {
         <Image
           src={`/${snippet.language}.png`}
           alt={`${snippet.language} logo`}
+          width={50} 
+          height={50}
           className="w-full h-full object-contain"
         />
       </div>
@@ -74,7 +83,16 @@ function SnippetDetailPage() {
       <Code className="w-4 h-4" />
       <span className="text-sm font-medium">Código Fonte</span>
     </div>
-    <CopyButton code={snippet.code} />
+    <div className="flex items-center gap-4 ">
+      <CopyButton code={snippet.code} />
+      
+      <button
+        onClick={handleUseSnippet}
+        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl opacity-100 transition-opacity group-hover:opacity-90"
+      >
+        <Play className="w-4 h-4 text-white/90 transition-transform group-hover:scale-110 group-hover:text-white" />
+      </button>
+    </div>
   </div>
   <Editor
     height="500px"
@@ -94,7 +112,7 @@ function SnippetDetailPage() {
       fontLigatures: true,
     }}
   />
-</div>
+      </div>
 
 
       {/* Comentários */}

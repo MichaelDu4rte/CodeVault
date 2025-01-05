@@ -14,7 +14,10 @@
     "@clerk/shared": "^2.20.4",
     "@clerk/themes": "^2.2.3",
     "@monaco-editor/react": "^4.6.0",
+    "@radix-ui/react-toast": "^1.2.4",
     "@vercel/analytics": "^1.4.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "convex": "^1.17.4",
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.469.0",
@@ -24,6 +27,8 @@
     "react-hot-toast": "^2.4.1",
     "react-syntax-highlighter": "^15.6.1",
     "svix": "^1.44.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
