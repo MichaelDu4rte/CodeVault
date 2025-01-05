@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion"; // Importando o framer-motion
 import HeaderProfileBtn from "@/app/editor/_components/HeaderProfileBtn";
