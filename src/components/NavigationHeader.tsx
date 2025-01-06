@@ -3,9 +3,12 @@ import { useState } from 'react';
 import { motion } from 'framer-motion'; // Importando o framer-motion
 import HeaderProfileBtn from '@/app/editor/_components/HeaderProfileBtn';
 import Link from 'next/link';
+import { useUser } from '@clerk/nextjs'; // Importando o hook useUser para verificar a autenticação
+import { CodeIcon } from 'lucide-react';
 
 function NavigationHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useUser(); // Verificando o usuário autenticado
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,7 +38,7 @@ function NavigationHeader() {
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex items-center gap-6">
           <Link
-            href="/"
+            href="/home"
             className="text-gray-300 hover:text-purple-400 transition-colors"
           >
             Início
@@ -47,12 +50,6 @@ function NavigationHeader() {
             Galeria de Códigos
           </Link>
           <Link
-            href="/editor"
-            className="text-gray-300 hover:text-purple-400 transition-colors"
-          >
-            Editor de Código
-          </Link>
-          <Link
             href="/pricing"
             className="text-gray-300 hover:text-purple-400 transition-colors"
           >
@@ -61,8 +58,18 @@ function NavigationHeader() {
         </div>
 
         {/* User Controls */}
+        <div className="flex items-center gap-4 ">
+          {user && (
+            <Link
+              href="/editor"
+              className="lg:flex hidden items-center gap-3 px-5 py-3 rounded-2xl border border-purple-900 bg-purple-950 text-white shadow-lg hover:bg-purple-800 hover:border-purple-700 hover:shadow-purple-700/50 transition-all duration-300 transform "
+            >
+              {/* Ícone de código */}
+              <CodeIcon className="w-5 h-5 text-purple-500" />
+              <span className="text-sm font-semibold">Editor de Código</span>
+            </Link>
+          )}
 
-        <div className="flex items-center gap-4">
           <HeaderProfileBtn />
 
           {/* Mobile Hamburger Icon */}
@@ -111,7 +118,7 @@ function NavigationHeader() {
           transition={{ duration: 0.3 }}
         >
           <Link
-            href="/"
+            href="/home"
             className="block text-gray-300 hover:text-purple-400 transition-colors"
           >
             Início
@@ -122,12 +129,15 @@ function NavigationHeader() {
           >
             Galeria de Códigos
           </Link>
-          <Link
-            href="/editor"
-            className="block text-gray-300 hover:text-purple-400 transition-colors"
-          >
-            Editor de Código
-          </Link>
+          {user && (
+            <Link
+              href="/editor"
+              className="block text-gray-300 hover:text-purple-400 transition-colors"
+            >
+              Editor de Codigo
+            </Link>
+          )}
+
           <Link
             href="/pricing"
             className="block text-gray-300 hover:text-purple-400 transition-colors"
