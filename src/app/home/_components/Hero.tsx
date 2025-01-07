@@ -55,7 +55,7 @@ function Hero() {
   });
 
   return (
-    <section className="py-24 overflow-x-clip text-white">
+    <section className="md:py-24 sm:py-12 overflow-x-clip text-white">
       <div className="relative max-w-7xl mx-auto px-4 py-12 z-10">
         {/* Caixa de código 1 - com borda */}
         <motion.div
@@ -124,9 +124,13 @@ function Hero() {
           <Pointer name="Pedro" color="blue" />
         </motion.div>
 
-        <h1 className="text-6xl md:text-7xl font-medium text-center mt-6 max-w-4xl mx-auto ">
-          Compartilhe Seu Código, Conquiste o Mundo
-        </h1>
+        <div className="relative  mx-auto text-center flex flex-col items-center justify-center">
+          <div className="absolute -inset-px bg-gradient-to-r from-blue-500 to-purple-500 blur-xl opacity-10" />
+          <h1 className="relative text-6xl md:text-7xl font-semibold bg-gradient-to-r from-gray-100 to-gray-300 text-transparent bg-clip-text mb-8">
+            Compartilhe Seu Código, Conquiste o Mundo
+          </h1>
+        </div>
+
         <p className="text-xl text-white/50 mt-8 max-w-3xl mx-auto text-center">
           Leve suas ideias para o próximo nível com nosso editor de código.
           Crie, experimente e compartilhe suas soluções com uma comunidade de

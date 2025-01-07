@@ -45,11 +45,11 @@ export type IntegrationsType = typeof integrations;
 
 export default function Integrations() {
   return (
-    <section className="py-24 px-3 overflow-hidden">
+    <section className="md:py-24 sm:py-12 px-3 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 py-12 z-10">
         <div className="grid lg:grid-cols-2 items-center lg:gap-16">
           <div>
-            <h2 className="text-6xl font-medium mt-6">
+            <h2 className="text-5xl md:text-6xl font-medium mt-6">
               Junte-se à comunidade{' '}
               <span className="text-purple-400">CodeVault</span>
             </h2>

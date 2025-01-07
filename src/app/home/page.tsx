@@ -5,6 +5,7 @@ import Hero from './_components/Hero';
 import Introduction from './_components/Introduction';
 import Integrations from './_components/Integrations';
 import Footer from './_components/Footer';
+import PricingPage from './_components/Pricing';
 
 function HomePage() {
   return (
@@ -20,6 +21,7 @@ function HomePage() {
       <div className="relative z-20">
         <Introduction />
         <Integrations />
+        <PricingPage />
         <Footer />
       </div>
     </div>
