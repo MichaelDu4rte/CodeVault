@@ -50,10 +50,10 @@ function NavigationHeader() {
             Galeria de Códigos
           </Link>
           <Link
-            href="/pricing"
+            href="/home#pricing"
             className="text-gray-300 hover:text-purple-400 transition-colors"
           >
-            Preço
+            Planos
           </Link>
         </div>
 
@@ -139,10 +139,10 @@ function NavigationHeader() {
           )}
 
           <Link
-            href="/pricing"
+            href="/home#pricing"
             className="block text-gray-300 hover:text-purple-400 transition-colors"
           >
-            Preço
+            Planos
           </Link>
         </motion.div>
       )}

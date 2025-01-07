@@ -1,7 +1,6 @@
 import React from 'react';
-import { SignedIn, SignedOut } from '@clerk/nextjs';
-import LoginButton from '@/components/providers/LoginButton';
-import { CheckCircle, Zap, FileText, Award } from 'lucide-react';
+import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { CheckCircle, Zap, FileText, Award, LogIn } from 'lucide-react';
 import Link from 'next/link';
 
 function PricingPage() {
@@ -23,7 +22,7 @@ function PricingPage() {
   ];
 
   return (
-    <section className="relative pt-32 pb-24 px-6">
+    <section className="relative pt-32 pb-24 px-6" id="pricing">
       <div className="max-w-7xl mx-auto">
         {/* Hero */}
         <div className="text-center mb-16">
@@ -64,20 +63,15 @@ function PricingPage() {
               ))}
             </ul>
             <div className="text-center mt-6">
-              <SignedIn>
-                <Link
-                  href="/editor"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white 
+              <Link
+                href="/editor"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white 
                     bg-gradient-to-r rounded-2xl
                     from-indigo-600 to-purple-600 transition-all"
-                >
-                  <Zap className="w-5 h-5" />
-                  Acessar
-                </Link>
-              </SignedIn>
-              <SignedOut>
-                <LoginButton />
-              </SignedOut>
+              >
+                <Zap className="w-5 h-5" />
+                Acessar
+              </Link>
             </div>
           </div>
 
@@ -122,7 +116,18 @@ function PricingPage() {
                 </Link>
               </SignedIn>
               <SignedOut>
-                <LoginButton />
+                <SignInButton mode="modal">
+                  <button
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white 
+                    bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl
+                    transition-all"
+                  >
+                    <LogIn className="w-5 h-5 transition-transform" />
+                    <span className="text-lg font-semibold">
+                      Login necessário para compra
+                    </span>
+                  </button>
+                </SignInButton>
               </SignedOut>
             </div>
           </div>
