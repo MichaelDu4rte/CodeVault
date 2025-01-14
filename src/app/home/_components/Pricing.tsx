@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function PricingPage() {
   const CHEKOUT_URL =
-    'https://codevault.lemonsqueezy.com/buy/a75910bb-6f8e-4aec-bf5d-8da705896045?media=0&logo=0';
+    'https://codevaultstore.lemonsqueezy.com/buy/26d03848-707c-48c4-aaf8-ad73abef7c3a?media=0';
 
   const benefits = [
     'Editor com todas as funcionalidades',

@@ -7,6 +7,7 @@ import Integrations from './_components/Integrations';
 import Footer from './_components/Footer';
 import PricingPage from './_components/Pricing';
 import ProductShowcase from './_components/ProductShowcase';
+import { Testimonials } from './_components/Testimonials';
 
 function HomePage() {
   return (
@@ -24,6 +25,7 @@ function HomePage() {
         <Introduction />
         <Integrations />
         <PricingPage />
+        <Testimonials />
         <Footer />
       </div>
     </div>
