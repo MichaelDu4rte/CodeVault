@@ -8,6 +8,7 @@ import Footer from './_components/Footer';
 import PricingPage from './_components/Pricing';
 import ProductShowcase from './_components/ProductShowcase';
 import { Testimonials } from './_components/Testimonials';
+import CallToAction from './_components/CallToAction';
 
 function HomePage() {
   return (
@@ -26,6 +27,7 @@ function HomePage() {
         <Integrations />
         <PricingPage />
         <Testimonials />
+        <CallToAction />
         <Footer />
       </div>
     </div>
