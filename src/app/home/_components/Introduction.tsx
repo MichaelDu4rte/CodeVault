@@ -25,7 +25,7 @@ export default function Introduction() {
   }, [wordsIndex]);
 
   return (
-    <section className="py-28 lg:py-40">
+    <section className="py-20 lg:py-40">
       <div className="relative max-w-7xl mx-auto px-4 py-12 z-10">
         <div className="sticky top-20 md:top-28">
           <div className="text-center">
@@ -40,7 +40,7 @@ export default function Introduction() {
             </motion.div>
           </div>
 
-          <div className="text-4xl md:text-6xl text-center font-medium mt-10 max-w-6xl mx-auto">
+          <div className="text-3xl md:text-5xl text-center font-medium mt-10 max-w-6xl mx-auto">
             <span>Dominando o back-end, um código de cada vez.</span>{' '}
             <span>
               {words.map((word, wordIndex) => (

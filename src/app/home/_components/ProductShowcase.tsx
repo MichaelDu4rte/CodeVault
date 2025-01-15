@@ -19,7 +19,7 @@ export default function ProductShowcase() {
   return (
     <section className="py-16 sm:py-12 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 className="text-center lg:text-6xl md:text-4xl sm:text-3xl font-bold tracking-tighter bg-gradient-to-r from-purple-400 text-transparent bg-clip-text">
+        <h2 className="text-center text-6xl sm:text-5xl font-bold tracking-tighter bg-gradient-to-r from-purple-400 text-transparent bg-clip-text">
           Editor de Código
         </h2>
         <div className="mx-auto mt-3 h-1 w-16 bg-gradient-to-r from-purple-400 rounded"></div>

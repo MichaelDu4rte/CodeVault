@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function PricingPage() {
   const CHEKOUT_URL =
-    'https://codevaultstore.lemonsqueezy.com/buy/26d03848-707c-48c4-aaf8-ad73abef7c3a?media=0';
+    'https://codevaultstore.lemonsqueezy.com/buy/929ba4c5-adb8-4110-9524-d51e16332f64';
 
   const benefits = [
     'Editor com todas as funcionalidades',
@@ -40,43 +40,7 @@ function PricingPage() {
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Free Plan */}
-          <div className="relative bg-[#1a1a24] rounded-xl shadow-lg p-8 transition-transform hover:shadow-xl duration-300 ease-in-out">
-            <div className="text-center mb-6">
-              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br  from-purple-500/20 to-blue-500/20">
-                <FileText className="w-8 h-8 text-purple-400" />
-              </div>
-              <h2 className="text-3xl font-semibold text-gray-200 mt-4">
-                Plano Gratuito
-              </h2>
-
-              <p className="text-gray-400 mt-2">
-                Experimente sem custo e veja o que o CodeVault pode fazer.
-              </p>
-            </div>
-            <ul className="space-y-3">
-              {benefitsFree.map((benefit, index) => (
-                <li key={index} className="flex items-center text-gray-400">
-                  <CheckCircle className="w-5 h-5 text-purple-400 mr-3" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
-            <div className="text-center mt-6">
-              <Link
-                href="/editor"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white 
-                    bg-gradient-to-r rounded-2xl
-                    from-indigo-600 to-purple-600 transition-all"
-              >
-                <Zap className="w-5 h-5" />
-                Acessar
-              </Link>
-            </div>
-          </div>
-
-          {/* Pro Plan */}
-          <div className="relative bg-[#1a1a24] rounded-xl shadow-lg p-8 transition-transform scale-105 hover:shadow-2xl duration-300 ease-in-out ring-2 ring-purple-500">
+          <div className="relative bg-[#1a1a24] rounded-xl shadow-lg p-8 transition-transform scale-105 hover:shadow-2xl duration-300 ease-in-out ring-2 ring-purple-500 order-first md:order-last">
             <div className="text-center mb-6">
               <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20">
                 <Award className="w-8 h-8 text-purple-400" />
@@ -129,6 +93,39 @@ function PricingPage() {
                   </button>
                 </SignInButton>
               </SignedOut>
+            </div>
+          </div>
+          <div className="relative bg-[#1a1a24] rounded-xl shadow-lg p-8 transition-transform hover:shadow-xl duration-300 ease-in-out order-last md:order-first">
+            <div className="text-center mb-6">
+              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br  from-purple-500/20 to-blue-500/20">
+                <FileText className="w-8 h-8 text-purple-400" />
+              </div>
+              <h2 className="text-3xl font-semibold text-gray-200 mt-4">
+                Plano Gratuito
+              </h2>
+
+              <p className="text-gray-400 mt-2">
+                Experimente sem custo e veja o que o CodeVault pode fazer.
+              </p>
+            </div>
+            <ul className="space-y-3">
+              {benefitsFree.map((benefit, index) => (
+                <li key={index} className="flex items-center text-gray-400">
+                  <CheckCircle className="w-5 h-5 text-purple-400 mr-3" />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+            <div className="text-center mt-6">
+              <Link
+                href="/editor"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white 
+                    bg-gradient-to-r rounded-2xl
+                    from-indigo-600 to-purple-600 transition-all"
+              >
+                <Zap className="w-5 h-5" />
+                Acessar
+              </Link>
             </div>
           </div>
         </div>
