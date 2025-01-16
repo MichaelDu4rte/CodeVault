@@ -12,6 +12,7 @@ import { defineMonacoThemes, LANGUAGE_CONFIG } from '@/app/editor/_constants';
 import CopyButton from './_components/CopyButton';
 import Comments from './_components/Comments';
 import Image from 'next/image';
+import Head from 'next/head';
 
 function SnippetDetailPage() {
   const snippetId = useParams().id;
@@ -33,6 +34,28 @@ function SnippetDetailPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#121218] to-[#1a1a1f]">
+      <Head>
+        <meta
+          name="description"
+          content={`${snippet.title} Código compartilhado por um ${snippet.userName}`}
+        />
+        <meta property="og:title" content={snippet.title} />
+        <meta property="og:description" content={snippet.title} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={`/${snippet.language}.png`} />
+        <meta
+          property="og:url"
+          content={`https://codevault.com.br/snippets/${snippetId}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={snippet.title} />
+        <meta
+          name="twitter:description"
+          content={`Código sobre ${snippet.title} em ${snippet.language}`}
+        />
+        <meta name="twitter:image" content={`/${snippet.language}.png`} />
+      </Head>
+
       <div className="max-w-[1800px] mx-auto p-4">
         <NavigationHeader />
       </div>

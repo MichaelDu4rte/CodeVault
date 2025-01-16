@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CodeVault',
     description:
-      'Explore, compartilhe e crie códigos com outros desenvolvedores na CodeVault, um editor de código online com uma galeria de códigos feita por usuários.',
-    url: 'https://www.codevault.com.br', // Atualize com a URL do seu site
+      'Explore, compartilhe e crie códigos com outros desenvolvedores no CodeVault, um editor de código online com uma galeria de códigos feita por usuários.',
+    url: 'https://www.codevault.com.br',
     images: [
       {
-        url: '/public/og-image.png', // URL de uma imagem de pré-visualização
+        url: '/public/og-image.png',
         width: 1200,
         height: 630,
         alt: 'CodeVault - Editor de Código Online',
