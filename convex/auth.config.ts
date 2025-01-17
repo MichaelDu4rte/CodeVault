@@ -1,7 +1,7 @@
 export default {
     providers: [
       {
-        domain: "https://singular-leech-85.clerk.accounts.dev/",
+        domain: "https://clerk.codevault.com.br",
         applicationID: "convex",
       },
     ]
