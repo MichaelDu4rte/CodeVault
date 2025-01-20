@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeVault 🛠️
 
-## Getting Started
+O **CodeVault** é uma plataforma online focada em back-end, projetada para desenvolvedores que buscam criar, compartilhar e explorar códigos em diversas linguagens de programação. Através do nosso editor de código online e repositório extenso, você pode publicar seus códigos, interagir com a comunidade, e aprimorar seus projetos.
 
-First, run the development server:
+## Demonstração 📸
+![screenrun-01-18-2025-08-02-18)](https://github.com/user-attachments/assets/27569916-9735-40c1-9155-3ad948389b6d)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades principais 🚀
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Editor de código online**: Trabalhe diretamente na plataforma com um editor intuitivo e poderoso, sem a necessidade de configurações complexas.
+- **Repositório público**: Crie, publique e compartilhe códigos com a comunidade. Receba feedback, comentários e marque seus códigos favoritos.
+- **Interface dinâmica e moderna**: O design limpo e o uso de tecnologia de ponta tornam a navegação rápida e agradável.
+- **Interatividade**: Comente, curta e participe de discussões nos códigos de outros usuários, contribuindo para um aprendizado contínuo.
+- **Tecnologia de ponta**: O CodeVault é projetado para garantir uma experiência fluida, com suporte a várias linguagens de programação e integração contínua com novos recursos.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Aqui você pode ver a interface de nosso editor de código, intuitivo e pronto para ajudá-lo a colocar suas ideias em prática.
 
-## Learn More
+## 🌟 Contribua!
 
-To learn more about Next.js, take a look at the following resources:
+Gostou do projeto? Deixe uma ⭐ no repositório para ajudar a espalhar a palavra! Além disso, contribuições são sempre bem-vindas. Se você tem uma melhoria ou um novo recurso em mente, envie um pull request e ajude a construir a comunidade.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📬 Contato
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tem dúvidas, sugestões ou quer conversar mais sobre o projeto? Fique à vontade para me contatar pelo [LinkedIn](https://www.linkedin.com/in/michaeldu4rte/). Estou sempre aberto a novos feedbacks e colaborações!
