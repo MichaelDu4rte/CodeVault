@@ -1,20 +1,21 @@
-"use client";
-import { useCodeEditorStore } from "@/store/userCodeEditorStore";
-import { useEffect, useState } from "react";
-import { defineMonacoThemes, LANGUAGE_CONFIG } from "../_constants";
-import { Editor } from "@monaco-editor/react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { ShareIcon, TypeIcon, DownloadCloudIcon } from "lucide-react";
-import { useClerk } from "@clerk/nextjs";
-import useMounted from "@/hooks/useMounted";
-import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
-import ShareSnippetDialog from "./ShareSnippetDialog";
+'use client';
+import { useCodeEditorStore } from '@/store/userCodeEditorStore';
+import { useEffect, useState } from 'react';
+import { defineMonacoThemes, LANGUAGE_CONFIG } from '../_constants';
+import { Editor } from '@monaco-editor/react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { ShareIcon, TypeIcon, DownloadCloudIcon } from 'lucide-react';
+import { useClerk } from '@clerk/nextjs';
+import useMounted from '@/hooks/useMounted';
+import { EditorPanelSkeleton } from './EditorPanelSkeleton';
+import ShareSnippetDialog from './ShareSnippetDialog';
 
 function EditorPanel() {
   const clerk = useClerk();
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
-  const { language, theme, fontSize, editor, setFontSize, setEditor } = useCodeEditorStore();
+  const { language, theme, fontSize, editor, setFontSize, setEditor } =
+    useCodeEditorStore();
   const mounted = useMounted();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function EditorPanel() {
   }, [language, editor]);
 
   useEffect(() => {
-    const savedFontSize = localStorage.getItem("editor-font-size");
+    const savedFontSize = localStorage.getItem('editor-font-size');
     if (savedFontSize) setFontSize(parseInt(savedFontSize));
   }, [setFontSize]);
 
@@ -35,38 +36,37 @@ function EditorPanel() {
   const handleFontSizeChange = (newSize: number) => {
     const size = Math.min(Math.max(newSize, 12), 24);
     setFontSize(size);
-    localStorage.setItem("editor-font-size", size.toString());
+    localStorage.setItem('editor-font-size', size.toString());
   };
 
   const LANGUAGE_EXTENSIONS: Record<string, string> = {
-    javascript: "js",
-    typescript: "ts",
-    python: "py",
-    java: "java",
-    go: "go",
-    rust: "rs",
-    cpp: "cpp",
-    csharp: "cs",
-    ruby: "rb",
-    swift: "swift",
+    javascript: 'js',
+    typescript: 'ts',
+    python: 'py',
+    java: 'java',
+    go: 'go',
+    rust: 'rs',
+    cpp: 'cpp',
+    csharp: 'cs',
+    ruby: 'rb',
+    swift: 'swift',
   };
 
-  
-function getExtension(languageId: string): string {
-  return LANGUAGE_EXTENSIONS[languageId] || "txt"; // Retorna "txt" como padrão se o idioma não estiver no mapeamento
-}
+  function getExtension(languageId: string): string {
+    return LANGUAGE_EXTENSIONS[languageId] || 'txt'; // Retorna "txt" como padrão se o idioma não estiver no mapeamento
+  }
 
   const handleDownloadCode = () => {
     if (!editor) return;
 
     const code = editor.getValue(); // Obtém o código atual do editor
     const extensionId = LANGUAGE_CONFIG[language].id;
-    const extension = getExtension(extensionId); 
-    const blob = new Blob([code], { type: "text/plain" });
+    const extension = getExtension(extensionId);
+    const blob = new Blob([code], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
 
     // Cria um link para o download
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = url;
     link.download = `code.${extension}`; // Define o nome do arquivo
     link.click();
@@ -84,10 +84,17 @@ function getExtension(languageId: string): string {
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-md ">
-              <Image src={`/${language}.png`} alt="Logo" width={28} height={28} />
+              <Image
+                src={`/${language}.png`}
+                alt="Logo"
+                width={28}
+                height={28}
+              />
             </div>
             <div>
-              <h2 className="text-lg font-medium text-white">Editor de Código</h2>
+              <h2 className="text-lg font-medium text-white">
+                Editor de Código
+              </h2>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -100,7 +107,9 @@ function getExtension(languageId: string): string {
                   min="12"
                   max="24"
                   value={fontSize}
-                  onChange={(e) => handleFontSizeChange(parseInt(e.target.value))}
+                  onChange={(e) =>
+                    handleFontSizeChange(parseInt(e.target.value))
+                  }
                   className="w-20 h-1 bg-gray-600 rounded-lg cursor-pointer"
                 />
                 <span className="text-sm text-gray-300">{fontSize}</span>
@@ -115,7 +124,6 @@ function getExtension(languageId: string): string {
               className="inline-flex items-center gap-3 px-3 py-2 rounded-md bg-gradient-to-r from-green-500 to-green-600 text-white font-medium"
             >
               <DownloadCloudIcon className="size-5 text-white" />
-              
             </motion.button>
 
             {/* Share Button */}
@@ -146,13 +154,13 @@ function getExtension(languageId: string): string {
                 automaticLayout: true,
                 scrollBeyondLastLine: false,
                 padding: { top: 16, bottom: 16 },
-                renderWhitespace: "selection",
+                renderWhitespace: 'selection',
                 fontFamily: '"Fira Code", "Cascadia Code", Consolas, monospace',
                 fontLigatures: true,
-                cursorBlinking: "smooth",
+                cursorBlinking: 'smooth',
                 smoothScrolling: true,
                 contextmenu: true,
-                renderLineHighlight: "all",
+                renderLineHighlight: 'all',
                 lineHeight: 1.6,
                 letterSpacing: 0.5,
                 roundedSelection: true,
@@ -168,7 +176,9 @@ function getExtension(languageId: string): string {
         </div>
       </div>
 
-      {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />}
+      {isShareDialogOpen && (
+        <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />
+      )}
     </div>
   );
 }

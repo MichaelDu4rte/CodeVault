@@ -16,7 +16,7 @@ function PricingPage() {
 
   const benefitsFree = [
     'Editor com funcionalidades básicas',
-    'Repositório público sem limites',
+    'Repositório público limitado',
     'Participe de discussões e deixe comentários',
     'Recursos Limitados',
   ];
@@ -29,11 +29,12 @@ function PricingPage() {
           <div className="relative inline-block">
             <div className="absolute -inset-px bg-gradient-to-r from-purple-500 to-indigo-500 blur-xl opacity-20" />
             <h1 className="relative text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-200 to-gray-400 text-transparent bg-clip-text mb-6">
-              Eleve seu Código <br />
+              Liberte Todo o Poder do Seu Código <br />
               com o Acesso Pro!
             </h1>
             <p className="text-gray-400 text-lg">
-              Descubra tudo o que o CodeVault pode oferecer.
+              Explore recursos ilimitados, publique seu trabalho e colabore como
+              nunca antes.
             </p>
           </div>
         </div>
@@ -76,7 +77,7 @@ function PricingPage() {
                     transition-all"
                 >
                   <Zap className="w-5 h-5" />
-                  Comprar Acesso Vitalício
+                  Garanta o Seu Agora!
                 </Link>
               </SignedIn>
               <SignedOut>
@@ -88,7 +89,7 @@ function PricingPage() {
                   >
                     <LogIn className="w-5 h-5 transition-transform" />
                     <span className="text-lg font-semibold">
-                      Login necessário para compra
+                      Faça Login para Comprar
                     </span>
                   </button>
                 </SignInButton>
@@ -97,7 +98,7 @@ function PricingPage() {
           </div>
           <div className="relative bg-[#1a1a24] rounded-xl shadow-lg p-8 transition-transform hover:shadow-xl duration-300 ease-in-out order-last md:order-first">
             <div className="text-center mb-6">
-              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br  from-purple-500/20 to-blue-500/20">
+              <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20">
                 <FileText className="w-8 h-8 text-purple-400" />
               </div>
               <h2 className="text-3xl font-semibold text-gray-200 mt-4">
@@ -124,7 +125,7 @@ function PricingPage() {
                     from-indigo-600 to-purple-600 transition-all"
               >
                 <Zap className="w-5 h-5" />
-                Acessar
+                Experimente Agora
               </Link>
             </div>
           </div>
