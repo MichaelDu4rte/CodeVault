@@ -2,6 +2,10 @@
 
 O **CodeVault** é uma plataforma online focada em back-end, projetada para desenvolvedores que buscam criar, compartilhar e explorar códigos em diversas linguagens de programação. Através do nosso editor de código online e repositório extenso, você pode publicar seus códigos, interagir com a comunidade, e aprimorar seus projetos.
 
+## Direitos Autorais
+
+Este projeto está protegido por [Licença de Direitos Autorais](LICENSE.md).
+
 ## Demonstração 📸
 ![screenrun-01-18-2025-08-02-18)](https://github.com/user-attachments/assets/27569916-9735-40c1-9155-3ad948389b6d)
 
